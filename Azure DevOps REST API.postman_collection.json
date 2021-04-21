@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "f3541bc7-9f60-42b8-8acf-cce64bcf838d",
+		"name": "Azure DevOps REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hollard",
+			"item": [
+				{
+					"name": "Get Work Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Azure Builds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Execute Azure Builds",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://dev.azure.com/hollard-insure/Risk/_apis/build/definitions/6?api-version=5.0",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"azure",
+								"com"
+							],
+							"path": [
+								"hollard-insure",
+								"Risk",
+								"_apis",
+								"build",
+								"definitions",
+								"6"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "5.0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LibFin",
+			"item": [
+				{
+					"name": "Get Azure Projects",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "naveen.tak@liberty.co.za",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "hdkjjxtxd2byt6sxa73z4mzfhzrtfdbwkw2zrzae2vi23s2cweka",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dev.azure.com/libertyholdings/_apis/projects?api-version=2.0",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"azure",
+								"com"
+							],
+							"path": [
+								"libertyholdings",
+								"_apis",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2.0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Azure Builds information",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "naveen.tak@liberty.co.za",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "hdkjjxtxd2byt6sxa73z4mzfhzrtfdbwkw2zrzae2vi23s2cweka",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dev.azure.com/libertyholdings/e6effb56-e5dd-4533-9bea-d23f51f317d7/_apis/build/definitions/135?api-version=5.0",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"azure",
+								"com"
+							],
+							"path": [
+								"libertyholdings",
+								"e6effb56-e5dd-4533-9bea-d23f51f317d7",
+								"_apis",
+								"build",
+								"definitions",
+								"135"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "5.0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Execute Azure Build Pipeline",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "zh657gdtegiimwavtgcxbyyj3grukffkrwfhqzrvyt2if2z6ffaa",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "naveen.tak@liberty.co.za",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n        \"definition\": {\n            \"id\": 302\n        } \n}"
+						},
+						"url": {
+							"raw": "https://dev.azure.com/libertyholdings/e6effb56-e5dd-4533-9bea-d23f51f317d7/_apis/build/builds?api-version=5.0",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"azure",
+								"com"
+							],
+							"path": [
+								"libertyholdings",
+								"e6effb56-e5dd-4533-9bea-d23f51f317d7",
+								"_apis",
+								"build",
+								"builds"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "5.0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Build Pipeline Artifacts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "naveen.tak@liberty.co.za",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "hdkjjxtxd2byt6sxa73z4mzfhzrtfdbwkw2zrzae2vi23s2cweka",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "https://dev.azure.com/libertyholdings/e6effb56-e5dd-4533-9bea-d23f51f317d7/_apis/build/builds/31807/artifacts\n\n\nGET https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/artifacts?artifactName={artifactName}&api-version=4.1"
+						},
+						"url": {
+							"raw": "https://dev.azure.com/libertyholdings/e6effb56-e5dd-4533-9bea-d23f51f317d7/_apis/build/builds/31807/artifacts",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"azure",
+								"com"
+							],
+							"path": [
+								"libertyholdings",
+								"e6effb56-e5dd-4533-9bea-d23f51f317d7",
+								"_apis",
+								"build",
+								"builds",
+								"31807",
+								"artifacts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
